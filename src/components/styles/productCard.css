@@ -1,0 +1,25 @@
+.product-card{
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--third-bg-color);
+  padding: 24px;
+  margin: 24px;
+  border-radius: 50px;
+}
+
+.product-title{
+  font-size: 24px;
+  font-weight: 700;
+}
+.product-description{
+
+  font-size: 16px;
+  font-weight: 300;
+}
+.product-price{
+  font-size: 20px;
+  font-weight: 700;
+}
+.product-price{
+}

@@ -1,16 +1,15 @@
 import "./styles/productCard.css"
-import productService from "../features/products/productService"
-import { useEffect, useState } from "react"
-
-const ProductCard = () => {
-	const [products, setProducts] = useState({})
-	useEffect(() => {
-		setProducts(productService.getProducts())
-		console.log(products)
-	})
+const apiUrl = "https://codealo-commerce-cms.onrender.com"
+const ProductCard = ({ product }) => {
 	return (
-		<section className='product-card'>
-			<p key={1}>{products}</p>
+		<section className='product-card' key={product.id}>
+			<img
+				src={`${apiUrl}${product.image.url}`}
+				alt={product.title}
+				className='product-img'
+			/>
+			<h3 className='product-title'>{product.title}</h3>
+			<p className='product-price'>$ {product.price}</p>
 		</section>
 	)
 }

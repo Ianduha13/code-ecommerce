@@ -10,7 +10,5 @@ const getProducts = async () => {
 		console.error(error)
 	}
 }
-const productService = {
-	getProducts,
-}
-export default productService
+
+export default getProducts

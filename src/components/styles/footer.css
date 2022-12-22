@@ -3,5 +3,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+  background-color: var(--primary-bg-color);
+  height: 54px;
+  padding: 0 32px;
+  border: 1px solid var(--third-bg-color);
+  border-bottom: 0;
+}
+.footer-icon{
+  margin-left: 6px;
 }
