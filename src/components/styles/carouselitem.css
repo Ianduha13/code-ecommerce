@@ -1,29 +1,21 @@
-.product-card{
+.carousel-card{
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
   background-color: var(--third-bg-color);
   padding: 24px;
   margin: 24px;
   border-radius: 50px;
 }
-
-.product-title{
+.carousel-title{
   font-size: 24px;
   font-weight: 700;
 }
-.product-description{
-
-  font-size: 16px;
-  font-weight: 300;
-}
-.product-price{
+.carousel-price{
   font-size: 20px;
   font-weight: 700;
 }
-.light .product-card {
+.light .carousel-card {
   box-shadow: 4px 4px 4px rgba(0,0,0,0.2);
-}
-.product-card:hover{
-  transform: scale(1.02);
 }

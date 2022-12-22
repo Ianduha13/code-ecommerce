@@ -1,5 +1,6 @@
 import "./styles/navbar.css"
 import { FaShoppingCart, FaMoon, FaSun } from "react-icons/fa"
+
 const Navbar = ({ theme, handleTheme }) => {
 	return (
 		<nav className='navbar-container'>

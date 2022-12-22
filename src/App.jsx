@@ -14,11 +14,6 @@ import getProducts from "./features/products/productService"
 function App() {
 	const [theme, setTheme] = useState(false)
 	const handleTheme = () => setTheme((x) => !x)
-	const fetchProducts = async () => {
-		const response = await getProducts()
-		return response
-	}
-
 	return (
 		<div className={`App ${theme ? "light" : "dark"}`}>
 			<Navbar theme={theme} handleTheme={handleTheme} />
