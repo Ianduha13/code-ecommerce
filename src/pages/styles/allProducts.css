@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: moveInBottom 1s ease-out 0.7s;
+  animation: moveInBottom 0.7s ease-out ;
   animation-fill-mode: backwards;
 }
 .products-header{

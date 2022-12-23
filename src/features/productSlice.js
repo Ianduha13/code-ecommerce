@@ -6,13 +6,19 @@ export const productSlice = createSlice({
 	name: "products",
 	initialState: {
 		products: [],
+		loading: true,
 	},
 	reducers: {
 		productsReceived(state, action) {
-			console.log("received", action.payload)
 			return {
 				...state,
 				products: action.payload,
+			}
+		},
+		loading(state, action) {
+			return {
+				...state,
+				loading: action.payload,
 			}
 		},
 	},
@@ -20,13 +26,16 @@ export const productSlice = createSlice({
 
 export const getProducts = () => async (dispatch) => {
 	try {
+		dispatch(loading(true))
 		const { data } = await axios.get(`${apiUrl}/products`)
 		dispatch(productsReceived(data))
 	} catch (error) {
 		console.error(error)
+	} finally {
+		dispatch(loading(false))
 	}
 }
 
-export const { productsReceived } = productSlice.actions
+export const { productsReceived, loading, addToCart } = productSlice.actions
 
 export default productSlice.reducer

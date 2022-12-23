@@ -1,31 +1,41 @@
+import "./styles/landing.css"
 import { useEffect, useState } from "react"
 import ProductCard from "../components/ProductCard"
-import "./styles/landing.css"
 import { useDispatch, useSelector } from "react-redux"
-import { getProducts } from "../features/products/productSlice"
+import { getProducts } from "../features/productSlice"
 import { useNavigate } from "react-router-dom"
+import CarouselItem from "../components/CarouselItem"
 
 const LandingPage = () => {
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
-	const { products } = useSelector((state) => state.products)
+	const { products, loading } = useSelector((state) => state.products)
+	const firstProducts = products.slice(0, 3)
 	useEffect(() => {
-		dispatch(getProducts())
+		products !== null && dispatch(getProducts())
 	}, [])
-	console.log(products)
 	return (
 		<div className='layout-page'>
 			<section className='landing-page'>
 				<header className='header'>We have whatever you want</header>
 
-				<section className='carousel'>
-					{products.map(
-						(x) => x.id < 4 && <ProductCard product={x} key={x.id} />
-					)}
-				</section>
-				<button className='landing-btn' onClick={() => navigate("/products")}>
-					See More...
-				</button>
+				{loading ? (
+					<>Loading</>
+				) : (
+					<>
+						<section className='carousel'>
+							{firstProducts.map((x) => (
+								<CarouselItem product={x} key={x.id} />
+							))}
+						</section>
+						<button
+							className='landing-btn'
+							onClick={() => navigate("/products")}
+						>
+							See More...
+						</button>
+					</>
+				)}
 			</section>
 		</div>
 	)

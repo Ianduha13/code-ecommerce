@@ -1,14 +1,14 @@
 import "./styles/allProducts.css"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { getProducts } from "../features/products/productSlice"
+import { getProducts } from "../features/productSlice"
 import ProductCard from "../components/ProductCard"
 
 const AllProductsPage = () => {
 	const dispatch = useDispatch()
 	const { products } = useSelector((state) => state.products)
 	useEffect(() => {
-		dispatch(getProducts())
+		products !== null && dispatch(getProducts())
 	}, [])
 	return (
 		<section className='products-page'>

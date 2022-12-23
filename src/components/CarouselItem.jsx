@@ -3,13 +3,14 @@ const apiUrl = "https://codealo-commerce-cms.onrender.com"
 const CarouselItem = ({ product }) => {
 	return (
 		<section className='carousel-card' key={product.id}>
-			<img
-				src={`${apiUrl}${product.image.url}`}
-				alt={product.title}
-				className='carousel-img'
-			/>
+			<div className='img-container'>
+				<img
+					src={`${apiUrl}${product.image.formats.thumbnail.url}`}
+					alt={product.title}
+					className='carousel-img'
+				/>
+			</div>
 			<h3 className='carousel-title'>{product.title}</h3>
-			<p className='carousel-price'>$ {product.price}</p>
 		</section>
 	)
 }

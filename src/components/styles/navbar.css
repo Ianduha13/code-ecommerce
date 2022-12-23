@@ -9,13 +9,7 @@
   justify-content: space-between;
   padding: 0 50px;
 }
-.navbar-left{
-  font-weight: 700;
-  font-size: 24px;
-  cursor: pointer;
-}
 .navbar-right{
-width: 100px;
 display: flex;
 align-items: center;
 }
@@ -25,10 +19,36 @@ align-items: center;
   background-color: transparent;
   border: 0;
   border-radius: 5px;
+text-decoration: none;
+  list-style: none;
+  color: var(--primary-color )
 }
 .nav-icon{
   color: var(--primary-color);
 }
 .nav-btn:hover{
   background-color: var(--third-bg-color);
+}
+.link-title{
+  text-decoration: none;
+  list-style: none;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.link{
+  text-decoration: none;
+  list-style: none;
+  color: var(--primary-color);
+  font-weight: 500;
+  font-size: 24px;
+  cursor: pointer;
+}
+.nav-list{
+  display: flex;
+}
+.nav-list-item{
+  padding: 4px;
 }

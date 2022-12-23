@@ -13,7 +13,6 @@
   font-weight: 700;
 }
 .product-description{
-
   font-size: 16px;
   font-weight: 300;
 }
@@ -26,4 +25,19 @@
 }
 .product-card:hover{
   transform: scale(1.02);
+}
+.quantity-span{
+  height: 24px;
+  font-size: 20px;
+}
+.product-card-btn{
+  padding: 6px;
+  border-radius: 30px;
+  border: 0px;
+  background-color: var(--primary-color);
+  color: var(--third-bg-color);
+  font-weight: 300;
+}
+.product-card-icon{
+  width:  24px ;
 }

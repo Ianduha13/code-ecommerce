@@ -1,21 +1,19 @@
-import axios from "axios"
-import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { getProducts } from "../features/products/productSlice"
-import ProductCard from "../components/ProductCard"
+import "./styles/productPage.css"
+const apiUrl = "https://codealo-commerce-cms.onrender.com"
 
-const ProductPage = () => {
-	const dispatch = useDispatch()
-	const { products } = useSelector((state) => state.products)
-	useEffect(() => {
-		dispatch(getProducts())
-	}, [])
+const ProductPage = ({ product }) => {
 	return (
-		<>
-			{products.map((x) => (
-				<ProductCard product={x} key={x.id} />
-			))}
-		</>
+		<section className='product-card' key={product.id}>
+			<img
+				src={`${apiUrl}${product.image.url}`}
+				alt={product.title}
+				className='product-img'
+			/>
+			<h3 className='product-title'>{product.title}</h3>
+			<p className='product-price'>$ {product.price}</p>
+			<p className='product-description'>$ {product.description}</p>
+		</section>
 	)
 }
+
 export default ProductPage

@@ -39,12 +39,13 @@ body {
   gap: 1;
   width: 80%;
   max-width: 1000px;
+  min-height: fit-content;
   background-color: var(--third-bg-color);
   border-radius: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 24px;
+  padding: 24px;
 }
 .light .layout-page{
   box-shadow: 0px 4px 8px rgba(0,0,0,0.2);

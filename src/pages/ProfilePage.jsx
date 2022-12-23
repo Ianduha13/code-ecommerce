@@ -1,7 +1,7 @@
 const ProfilePage = () => {
 	return (
 		<>
-			<div>hola soy un div</div>
+			<div className='layout-page'>hola soy un div</div>
 		</>
 	)
 }

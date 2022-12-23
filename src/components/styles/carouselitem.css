@@ -1,21 +1,18 @@
+.carousel{
+  display: flex;
+  padding: 12px;
+}
 .carousel-card{
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
-  background-color: var(--third-bg-color);
+  background-color: var(--secondary-color);
   padding: 24px;
   margin: 24px;
   border-radius: 50px;
 }
-.carousel-title{
-  font-size: 24px;
-  font-weight: 700;
-}
-.carousel-price{
-  font-size: 20px;
-  font-weight: 700;
-}
-.light .carousel-card {
-  box-shadow: 4px 4px 4px rgba(0,0,0,0.2);
+.img-container {
+  height: 260px;
+  width: 240px;
+  object-fit: contain;
 }

@@ -1,4 +1,5 @@
 .landing-page{
+  position: relative;
   padding-top: 54px;
   display: flex;
   flex-direction: column;
@@ -9,13 +10,7 @@
   font-size: 32px;
   font-weight: 500;
 }
-.carousel{
-  width: 100%;
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(min(50%, 200px), 1fr)) ;
-  margin-bottom: 24px; width: 100%;
-}
+
 .landing-btn{
   width: 80%;
   height: 40px;
