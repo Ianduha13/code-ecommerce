@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: moveInBottom 0.7s ease-out ;
+  animation: moveInBottom 0.7s ease-out 0.5s ;
   animation-fill-mode: backwards;
 }
 .products-header{
@@ -17,7 +17,6 @@
   width: 80%;
   display: grid;
   gap: 1rem;
-  grid-auto-rows: 480px;
   grid-template-columns: repeat(auto-fill, minmax(min(50%, 300px), 1fr)) ;
   margin-bottom: 24px;
 }

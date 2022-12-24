@@ -1,6 +1,7 @@
 import "./styles/checkoutCard.css"
 import { useSelector, useDispatch } from "react-redux"
 import { addToCart, removeFromCart } from "../features/cartSlice"
+import CounterButtons from "./CounterButtons"
 
 const apiUrl = "https://codealo-commerce-cms.onrender.com"
 
@@ -31,18 +32,12 @@ const CheckoutCard = ({ product }) => {
 						Add To Cart {quantity}
 					</button>
 				) : (
-					<div>
-						<button
-							className='checkout-card-btn'
-							onClick={handleRemoveFromCart}
-						>
-							-
-						</button>
-						<span className='quantity-span'>{quantity}</span>
-						<button className='chekout-card-btn' onClick={handleAddToCart}>
-							+
-						</button>
-					</div>
+					<CounterButtons
+						increment={handleAddToCart}
+						decrement={handleRemoveFromCart}
+						value={quantity}
+						emptyLabel='Add to Cart'
+					/>
 				)}
 			</div>
 		</section>

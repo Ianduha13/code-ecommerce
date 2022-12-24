@@ -1,8 +1,11 @@
 .carousel{
   display: flex;
   padding: 12px;
+  animation: moveInBottom 0.7s ease-out 0.5s ;
+  animation-fill-mode: backwards;
 }
 .carousel-card{
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -10,6 +13,7 @@
   padding: 24px;
   margin: 24px;
   border-radius: 50px;
+  text-align: center;
 }
 .img-container {
   height: 260px;

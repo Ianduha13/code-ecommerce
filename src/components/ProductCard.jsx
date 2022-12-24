@@ -1,4 +1,5 @@
 import "./styles/productCard.css"
+import CounterButtons from "./CounterButtons"
 import { useSelector, useDispatch } from "react-redux"
 import { addToCart, removeFromCart } from "../features/cartSlice"
 
@@ -23,21 +24,14 @@ const ProductCard = ({ product }) => {
 			/>
 			<h3 className='product-title'>{product.title}</h3>
 			<p className='product-price'>$ {product.price}</p>
-			{quantity === 0 ? (
-				<button className='product-card-btn' onClick={handleAddToCart}>
-					Add To Cart {quantity}
-				</button>
-			) : (
-				<div>
-					<button className='product-card-btn' onClick={handleRemoveFromCart}>
-						-
-					</button>
-					<span className='quantity-span'>{quantity}</span>
-					<button className='product-card-btn' onClick={handleAddToCart}>
-						+
-					</button>
-				</div>
-			)}
+			<section className='product-buttons'>
+				<CounterButtons
+					increment={handleAddToCart}
+					decrement={handleRemoveFromCart}
+					value={quantity}
+					emptyLabel='Add to Cart'
+				/>
+			</section>
 		</section>
 	)
 }

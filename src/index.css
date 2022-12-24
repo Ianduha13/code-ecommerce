@@ -15,6 +15,7 @@ body {
 .dark{
   --primary-color: #fff ;
   --secondary-color: #2d1d42;
+  --third-color: #fd772a;
   --primary-bg-color: #1a0b2e; 
   --secondary-bg-color: #251C31; 
   --third-bg-color: #693b93;
@@ -22,6 +23,7 @@ body {
 .light{
   --primary-color: #000 ;
   --secondary-color: #edf2f7;
+  --third-color: #AA22DD;
   --primary-bg-color: #f7fafc;
   --secondary-bg-color: #edf2f7;
   --third-bg-color: #f7fafc;

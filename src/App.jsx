@@ -22,9 +22,6 @@ function App() {
 					<Route path='/' element={<LandingPage />} />
 					<Route path='/products' element={<AllProductsPage />} />
 					<Route path='/checkout' element={<CheckoutPage />} />
-					<Route path='/login' element={<LoginPage />} />
-					<Route path='/register' element={<RegisterPage />} />
-					<Route path='/me' element={<ProfilePage />} />
 					<Route path={`/product/`} element={<ProductPage />} />
 				</Routes>
 				<Footer />

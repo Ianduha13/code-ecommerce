@@ -11,18 +11,10 @@ const Navbar = ({ theme, handleTheme }) => {
 				</NavLink>
 			</section>
 			<section className='navbar-right'>
-				<ul className='nav-list'>
-					<li className='nav-list-item'>
-						<NavLink className='link' to='/products'>
-							Products
-						</NavLink>
-					</li>
-					<li className='nav-list-item'>
-						<NavLink className='link' to='/me'>
-							Profile
-						</NavLink>
-					</li>
-				</ul>
+				<NavLink className='link' to='/products'>
+					Products
+				</NavLink>
+
 				<NavLink className='nav-btn' to='/checkout'>
 					<FaShoppingCart className='nav-icon' size={"1.4em"} />
 				</NavLink>

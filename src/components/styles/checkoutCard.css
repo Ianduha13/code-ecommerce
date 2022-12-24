@@ -15,13 +15,34 @@
   justify-content: space-between;
   background-color: var(--primary-bg-color);
 }
+.col{
+  width: fit-content;
+  display: flex;
+  align-items: center;
+}
 .checkout-title{
   padding-left: 24px;
   font-size: 24px;
   font-weight: 700;
 }
 .checkout-price{
-  padding-left: 24px;
+  padding-right: 24px;
   font-size: 24px;
   font-weight: 700;
+}
+.quantity-span{
+  height: 24px;
+  font-size: 20px;
+}
+.product-card-btn{
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 30px;
+  border: 0px;
+  background-color: var(--primary-color);
+  color: var(--third-bg-color);
+  font-weight: 300;
+}
+.product-card-icon{
+  width:  24px ;
 }
