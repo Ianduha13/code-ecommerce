@@ -14,8 +14,12 @@ const Footer = () => {
 			</section>
 
 			<section className='footer-right'>
-				<FaGithub className='footer-icon' size={"1.4em"} />
-				<FaLinkedin className='footer-icon' size={"1.4em"} />
+				<a target='__blank' href='https://github.com/Ianduha13'>
+					<FaGithub className='footer-icon' size={"1.4em"} />
+				</a>
+				<a target='__blank' href='https://www.linkedin.com/in/ian-duhamel/'>
+					<FaLinkedin className='footer-icon' size={"1.4em"} />
+				</a>
 			</section>
 		</footer>
 	)
