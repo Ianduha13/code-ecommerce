@@ -1,6 +1,6 @@
 .counter-buttons{
   height: 40px;
-  margin-top: 16px;
+  margin-top: 6px;
 }
 .counter-buttons-list{
   display: flex;
@@ -27,6 +27,7 @@
   width: 24px;
   font-size: 28px;
   font-weight: bold;
+  text-align: center;
 }
 .counter-btn-initial{
   height: 40px;

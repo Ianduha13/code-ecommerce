@@ -11,7 +11,7 @@ const Navbar = ({ theme, handleTheme }) => {
 				</NavLink>
 			</section>
 			<section className='navbar-right'>
-				<NavLink className='link' to='/products'>
+				<NavLink className='nav-btn link' to='/products'>
 					Products
 				</NavLink>
 

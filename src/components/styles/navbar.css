@@ -14,6 +14,9 @@ display: flex;
 align-items: center;
 }
 .nav-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-left: 8px;
   padding: 4px;
   background-color: transparent;
@@ -21,13 +24,12 @@ align-items: center;
   border-radius: 5px;
   text-decoration: none;
   list-style: none;
-  color: var(--primary-color )
+  color: var(--primary-color );
+  cursor: pointer;
 }
 .nav-icon{
   color: var(--primary-color);
 }
-
-
 .link-title{
   text-decoration: none;
   list-style: none;
@@ -38,12 +40,14 @@ align-items: center;
 }
 .link{
   text-align: center;
-  text-decoration: none;
-  list-style: none;
-  color: var(--primary-color);
   font-weight: 500;
-  font-size: 24px;
-  cursor: pointer;
+  margin-right: 24px;
+  font-size: 20px;
+}
+@media(max-width: 540px) {
+  .link{
+    display: none;
+  }
 }
 .nav-btn:hover{
   background-color: var(--third-bg-color);

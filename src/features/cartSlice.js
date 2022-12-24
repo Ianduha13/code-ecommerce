@@ -33,9 +33,19 @@ export const cartSlice = createSlice({
 			}
 			return { ...state, cart: newCart }
 		},
+		resetCart() {
+			return {
+				cart: {},
+				loading: true,
+			}
+		},
 	},
 })
-
-export const { addToCart, removeFromCart } = cartSlice.actions
+export const getTotalValue = (state) => {
+	const cart = Object.values(state.cart.cart)
+	const totalValue = cart.reduce((acc, x) => acc + x.quantity * x.price, 0)
+	return totalValue
+}
+export const { addToCart, removeFromCart, resetCart } = cartSlice.actions
 
 export default cartSlice.reducer
