@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
+import cartService from "./cartService"
 
 export const cartSlice = createSlice({
 	name: "cart",
@@ -46,6 +47,16 @@ export const getTotalValue = (state) => {
 	const totalValue = cart.reduce((acc, x) => acc + x.quantity * x.price, 0)
 	return totalValue
 }
+export const makeOrder = (cart) => async (dispatch) => {
+	try {
+		await cartService.postOrder(cart)
+		dispatch(resetCart())
+	} catch (error) {
+		const message = error?.response?.data?.message
+		dispatch(rejected(message))
+	}
+}
+
 export const { addToCart, removeFromCart, resetCart } = cartSlice.actions
 
 export default cartSlice.reducer

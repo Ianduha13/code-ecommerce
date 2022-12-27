@@ -2,9 +2,9 @@ import { useRef, useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
 import CheckoutCard from "../components/CheckoutCard"
-import { getTotalValue, resetCart } from "../features/cartSlice"
+import { getTotalValue, makeOrder, resetCart } from "../features/cartSlice"
 
-const CheckoutPage = () => {
+const CheckoutPage = ({ user }) => {
 	const [email, setEmail] = useState("")
 	const [submitedToEmail, setSubmittedToEmail] = useState("")
 	const { cart } = useSelector((state) => state.cart)
@@ -14,16 +14,7 @@ const CheckoutPage = () => {
 	const inputRef = useRef()
 	const handleSubmit = (e) => {
 		e.preventDefault()
-		const isValid = email
-			.toLowerCase()
-			.match(
-				/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-			)
-
-		if (!isValid) return
-		dispatch(resetCart())
-		setSubmittedToEmail(email)
-		inputRef.current.value = ""
+		dispatch(makeOrder())
 	}
 
 	if (!actualCart.length) {
@@ -60,15 +51,9 @@ const CheckoutPage = () => {
 				<header className='total-header'>
 					Total: {Math.ceil(totalValue * 100) / 100}
 				</header>
-				<input
-					type='email'
-					placeholder='example@gmail.com'
-					className='total-header input-header'
-					onChange={(e) => setEmail(e.target.value)}
-					ref={inputRef}
-				/>
+
 				<button type='submit' className='total-header button-header'>
-					Submit!
+					Send your order!
 				</button>
 			</form>
 		</div>
