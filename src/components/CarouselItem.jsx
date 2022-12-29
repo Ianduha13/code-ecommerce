@@ -2,7 +2,7 @@ import CounterButtons from "./CounterButtons"
 import useProductCounter from "../hooks/useProductCounter"
 import "./styles/carouselitem.css"
 
-const apiUrl = "https://codealo-commerce-cms.onrender.com"
+const apiUrl = import.meta.env.VITE_API_URL
 
 const CarouselItem = ({ product }) => {
 	const { quantity, add, remove } = useProductCounter(product)

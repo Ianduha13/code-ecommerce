@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { addToCart, removeFromCart } from "../features/cartSlice"
 import CounterButtons from "./CounterButtons"
 
-const apiUrl = "https://codealo-commerce-cms.onrender.com"
+const apiUrl = import.meta.env.VITE_API_URL
 
 const CheckoutCard = ({ product }) => {
 	const dispatch = useDispatch()

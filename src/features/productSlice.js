@@ -7,6 +7,7 @@ export const productSlice = createSlice({
 	initialState: {
 		products: [],
 		loading: true,
+		productsFiltered: [],
 	},
 	reducers: {
 		productsReceived(state, action) {
@@ -20,6 +21,9 @@ export const productSlice = createSlice({
 				...state,
 				loading: action.payload,
 			}
+		},
+		filterProducts(state, action) {
+			console.log(action.payload)
 		},
 	},
 })
@@ -36,6 +40,7 @@ export const getProducts = () => async (dispatch) => {
 	}
 }
 
-export const { productsReceived, loading, addToCart } = productSlice.actions
+export const { filterProducts, productsReceived, loading, addToCart } =
+	productSlice.actions
 
 export default productSlice.reducer

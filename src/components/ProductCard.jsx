@@ -2,7 +2,7 @@ import "./styles/productCard.css"
 import CounterButtons from "./CounterButtons"
 import useProductCounter from "../hooks/useProductCounter"
 
-const apiUrl = "https://codealo-commerce-cms.onrender.com"
+const apiUrl = import.meta.env.VITE_API_URL
 
 const ProductCard = ({ product }) => {
 	const { quantity, add, remove } = useProductCounter(product)

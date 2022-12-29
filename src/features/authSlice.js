@@ -1,24 +1,28 @@
 import { createSlice } from "@reduxjs/toolkit"
+import axios from "axios"
 import authService from "./authService"
+import cartService from "./cartService"
 
-const user = JSON.parse(localStorage.getItem("user")) ?? null
+const apiUrl = import.meta.env.VITE_API_URL
+const userData = JSON.parse(localStorage.getItem("userData")) ?? null
 
+const { user, jwt } = userData
 const initialState = {
 	isError: false,
 	isSuccess: false,
 	isLoading: false,
 	message: "",
+	user,
+	orders: [],
 }
-
 export const authSlice = createSlice({
 	name: "auth",
 	initialState: {
 		...initialState,
-		user,
 	},
 	reducers: {
 		logout: () => {
-			localStorage.removeItem("user")
+			localStorage.removeItem("userData")
 			return { ...initialState, user: null }
 		},
 		loggedIn: (state, action) => {
@@ -47,12 +51,18 @@ export const authSlice = createSlice({
 				message: action.payload,
 			}
 		},
+		ordersReceived(state, action) {
+			return {
+				...state,
+				orders: action.payload,
+			}
+		},
 	},
 })
 
-export const registerUser = (userData) => async (dispatch) => {
+export const registerUser = (registerData) => async (dispatch) => {
 	try {
-		await authService.register(userData)
+		await authService.register(registerData)
 		dispatch(
 			loggedIn({
 				user,
@@ -65,10 +75,9 @@ export const registerUser = (userData) => async (dispatch) => {
 		dispatch(rejected(message))
 	}
 }
-export const loginUser = (userData) => async (dispatch) => {
-	console.log(userData)
+export const loginUser = (loginData) => async (dispatch) => {
 	try {
-		const user = await authService.login(userData)
+		const user = await authService.login(loginData)
 		dispatch(
 			loggedIn({
 				user,
@@ -77,10 +86,24 @@ export const loginUser = (userData) => async (dispatch) => {
 		)
 	} catch (error) {
 		const message = error?.response?.data?.message
+		console.log(message)
 		dispatch(rejected(message))
 	}
 }
-
+export const getOrders = () => async (dispatch) => {
+	try {
+		const { data } = await axios({
+			method: "get",
+			url: `${apiUrl}/orders`,
+			headers: {
+				Authorization: `Bearer ${jwt}`,
+			},
+		})
+		dispatch(ordersReceived(data))
+	} catch (error) {
+		console.error(error)
+	}
+}
 export const { logout, loggedIn, rejected, validationError } = authSlice.actions
 
 export default authSlice.reducer

@@ -32,3 +32,7 @@
   font-weight: bold;
   border-bottom: 1px  solid var(--primary-color);
 }
+.light
+.footer-container{
+  box-shadow: 0px 5px 25px rgba(0,0,0,0.25);
+}

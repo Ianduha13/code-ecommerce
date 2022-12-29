@@ -17,7 +17,7 @@ align-items: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 8px;
+  margin-right: 8px;
   padding: 4px;
   background-color: transparent;
   border: 0;
@@ -41,8 +41,27 @@ align-items: center;
 .link{
   text-align: center;
   font-weight: 500;
-  margin-right: 24px;
+  margin-right: 12px;
   font-size: 20px;
+}
+.link-highlight{
+  background-color: var(--third-color);
+}
+.nav-basketCount{
+  position: relative;
+  top: -14px;
+  right: 6px;
+  background-color: #E9725A;
+  border-radius: 100px;
+  color: #fff;
+  padding: 2px 6px;
+  font-size: 0.9rem;
+}
+.inactive{
+  display: none;
+}
+.light .navbar-container{
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.25);
 }
 @media(max-width: 540px) {
   .link{

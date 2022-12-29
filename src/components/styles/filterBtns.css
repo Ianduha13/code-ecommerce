@@ -1,0 +1,24 @@
+.filter-buttons{
+  margin: 20px 0 12px;
+  min-width: 600px;
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+}
+.filter-buttons button{
+  cursor: pointer;
+  color: #fff;
+  background-color: var(--third-color);
+  padding: 8px 12px ;
+  border-radius: 50px;
+  border: 0;
+  font-size: 18px;
+}
+@media (max-width: 650px){
+  .filter-buttons{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: auto auto auto auto;
+    justify-content: center;
+  }
+}

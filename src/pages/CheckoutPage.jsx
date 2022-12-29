@@ -10,6 +10,7 @@ const CheckoutPage = ({ user }) => {
 	const { cart } = useSelector((state) => state.cart)
 	const dispatch = useDispatch()
 	const totalValue = useSelector(getTotalValue)
+	console.log(totalValue)
 	const actualCart = Object.values(cart).filter((x) => x.quantity)
 	const inputRef = useRef()
 	const handleSubmit = (e) => {

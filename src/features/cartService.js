@@ -1,24 +1,33 @@
 import axios from "axios"
-const apiUrl = "https://codealo-commerce-cms.onrender.com/auth/local"
-const jwt =
-	"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ1NTg4NDk2LCJleHAiOjE2NDgxODA0OTZ9.vGOqFfySt4-qYIPKVdTBbsjjoL_9iwvHVesXFf0lZfw"
+const apiUrl = import.meta.env.VITE_API_URL
 
 const postOrder = async (cart) => {
 	const response = axios({
 		method: "post",
-		url: `${apiUrl}`,
+		url: `${apiUrl}/orders`,
 		headers: {
-			Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ1NTg4NDk2LCJleHAiOjE2NDgxODA0OTZ9.vGOqFfySt4-qYIPKVdTBbsjjoL_9iwvHVesXFf0lZfw'`,
+			Authorization: `Bearer ${jwt}`,
 			"Content-Type": "application/json",
 		},
 		body: {
-			cart: cart,
+			cart: 1,
 		},
 	})
 	console.log(response.data)
 	return response.data
 }
+// export const getOrders = async (jwt) => {
+// 	const response = axios({
+// 		method: "get",
+// 		url: `${apiUrl}/orders`,
+// 		headers: {
+// 			Authorization: `Bearer ${jwt}`,
+// 		},
+// 	})
+// 	return response.data
+// }
 const cartService = {
 	postOrder,
+	// getOrders,
 }
 export default cartService

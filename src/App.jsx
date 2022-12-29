@@ -10,10 +10,12 @@ import Footer from "./components/Footer"
 import RegisterPage from "./pages/RegisterPage"
 import LoginPage from "./pages/LoginPage"
 import ProfilePage from "./pages/ProfilePage"
+import ProductPage from "./pages/ProductPage"
 
 const App = () => {
 	const { products } = useSelector((state) => state.products)
 	const { user } = useSelector((state) => state.auth)
+	const { cart } = useSelector((state) => state.cart)
 	const dispatch = useDispatch()
 	const [theme, setTheme] = useState(false)
 	const handleTheme = () => setTheme((x) => !x)
@@ -23,9 +25,15 @@ const App = () => {
 	return (
 		<div className={`App ${theme ? "light" : "dark"}`}>
 			<BrowserRouter>
-				<Navbar theme={theme} user={user} handleTheme={handleTheme} />
+				<Navbar
+					products={cart}
+					theme={theme}
+					user={user}
+					handleTheme={handleTheme}
+				/>
 				<Routes>
 					<Route path='/' element={<LandingPage products={products} />} />
+					<Route path='/product' element={<ProductPage />} />
 					<Route
 						path='/products'
 						element={<ProductsPage products={products} user={user} />}

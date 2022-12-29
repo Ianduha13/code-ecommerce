@@ -1,9 +1,11 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
-import { redirect } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { validationError, registerUser } from "../features/authSlice"
 import "./styles/register.css"
+
 const RegisterPage = () => {
+	const navigate = useNavigate()
 	const dispatch = useDispatch()
 	const [formData, setFormData] = useState({
 		name: "",
@@ -25,8 +27,7 @@ const RegisterPage = () => {
 			return dispatch(validationError("Password do not match"))
 		}
 		const userData = { name, email, password }
-		dispatch(registerUser(userData))
-		redirect("/")
+		dispatch(registerUser(userData)).then(navigate("/"))
 	}
 
 	return (

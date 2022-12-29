@@ -90,13 +90,17 @@
   height: auto;
 }
 .button-cart-empty{
+  cursor: pointer;
   color:  #fff;
-  background-color:#AA22DD;
+  background-color: var(--third-color);
   height: 40px;
   padding: 0 12px;
   border-radius: 25px;
   font-weight: bold;
   border: 0;
+}
+.button-cart-empty:hover{
+  transform: scale(1.01);
 }
 .light .total-header  {
   box-shadow: 5px 5px 5px rgba(0,0,0,0.2);

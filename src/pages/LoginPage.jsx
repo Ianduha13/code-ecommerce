@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { loginUser } from "../features/authSlice"
 import "./styles/login.css"
+
 const LoginPage = () => {
 	const dispatch = useDispatch()
 	const [formData, setFormData] = useState({
@@ -29,7 +30,7 @@ const LoginPage = () => {
 				<form className='login-form' onSubmit={onSubmit}>
 					<input
 						type='text'
-						placeholder='Your email example@gmail.com'
+						placeholder='Please put you e-mail here'
 						className='login-input'
 						name='email'
 						onChange={onChange}
