@@ -10,7 +10,7 @@ const CarouselItem = ({ product }) => {
 	return (
 		<section className='carousel-card' key={product.id}>
 			<img
-				src={`${apiUrl}${product.image.formats.thumbnail.url}`}
+				src={`${apiUrl}${product.image.url}`}
 				alt={product.title}
 				className='carousel-img'
 			/>
@@ -20,6 +20,7 @@ const CarouselItem = ({ product }) => {
 				decrement={remove}
 				value={quantity}
 				emptyLabel='Add to Cart'
+				className='counter-landing'
 			/>
 		</section>
 	)

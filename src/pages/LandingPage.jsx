@@ -11,7 +11,6 @@ const LandingPage = ({ products }) => {
 		<div className='layout-page'>
 			<section className='landing-page'>
 				<header className='header'>We have whatever you want</header>
-
 				<section className='carousel'>
 					{firstProducts.map((x, idx) => (
 						<CarouselItem product={x} key={idx} />

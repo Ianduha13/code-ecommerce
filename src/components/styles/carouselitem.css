@@ -1,4 +1,4 @@
-.carousel-card{
+.carousel-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -11,9 +11,25 @@
   width: 100%;
   min-width: 224px;
 }
+
+.carousel-title {
+  font-size: 20px;
+}
+
+.carousel-img {
+  height: 180px;
+}
+
 @media (max-width:1100px) {
-  .carousel-card{
+  .carousel-card {
     height: auto;
-    width: 90%;
+    width: 80%;
+    align-items: center;
+    padding: 12px;
+  }
+
+  .carousel-img {
+    height: 80%;
+    width: 80%;
   }
 }

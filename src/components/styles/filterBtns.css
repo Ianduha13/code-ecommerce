@@ -1,8 +1,12 @@
 .filter-buttons{
   margin: 20px 0 12px;
-  min-width: 600px;
-  width: 40%;
+  width: 100%;
   display: flex;
+  justify-content: center;
+}
+.buttons-container{
+  display: flex;
+  gap: 1rem;
   justify-content: space-between;
 }
 .filter-buttons button{
@@ -15,7 +19,7 @@
   font-size: 18px;
 }
 @media (max-width: 650px){
-  .filter-buttons{
+  .buttons-container{
     display: grid;
     gap: 1rem;
     grid-template-columns: auto auto auto auto;

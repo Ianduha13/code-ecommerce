@@ -1,6 +1,6 @@
 import "./styles/checkoutCard.css"
 import { useSelector, useDispatch } from "react-redux"
-import { addToCart, removeFromCart } from "../features/cartSlice"
+import { addToCart, removeFromCart } from "../features/cart/cartSlice"
 import CounterButtons from "./CounterButtons"
 
 const apiUrl = import.meta.env.VITE_API_URL

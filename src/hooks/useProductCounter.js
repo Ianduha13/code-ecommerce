@@ -1,11 +1,16 @@
 import { useSelector, useDispatch } from "react-redux"
-import { addToCart, removeFromCart } from "../features/cartSlice"
+import {
+	addToCart,
+	removeFromCart,
+	onlineCart,
+} from "../features/cart/cartSlice"
 
 const useProductCounter = (product) => {
 	const dispatch = useDispatch()
 	const storeProduct = useSelector((state) => state.cart.cart[product?.id])
 	const quantity = storeProduct?.quantity ?? 0
 	const handleAddToCart = () => {
+		// dispatch(onlineCart(product, 1, storeProduct))
 		dispatch(addToCart(product))
 	}
 	const handleRemoveFromCart = () => {

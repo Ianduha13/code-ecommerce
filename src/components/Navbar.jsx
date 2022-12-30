@@ -2,16 +2,17 @@ import "./styles/navbar.css"
 import { FaSignOutAlt, FaShoppingCart, FaMoon, FaSun } from "react-icons/fa"
 import { NavLink } from "react-router-dom"
 import { useDispatch } from "react-redux"
-import { logout } from "../features/authSlice"
+import { logout } from "../features/auth/authSlice"
 import { useEffect, useState } from "react"
 import BubbleCounter from "./BubbleCounter"
-import { useSelector } from "react-redux"
+import { resetCart } from "../features/cart/cartSlice"
 
 const Navbar = ({ theme, handleTheme, user }) => {
 	const [userLog, setUserLog] = useState()
 	const dispatch = useDispatch()
 	const handleLogout = () => {
 		dispatch(logout())
+		dispatch(resetCart())
 	}
 	useEffect(() => {
 		setUserLog(user)
@@ -32,7 +33,7 @@ const Navbar = ({ theme, handleTheme, user }) => {
 						<NavLink className='nav-btn link' to='/login'>
 							Login
 						</NavLink>
-						<NavLink className='nav-btn link link-highlight' to='/register'>
+						<NavLink className='nav-btn link-highlight' to='/register'>
 							Register
 						</NavLink>
 						<button className='nav-btn' onClick={() => handleTheme()}>
@@ -50,8 +51,8 @@ const Navbar = ({ theme, handleTheme, user }) => {
 						</NavLink>
 						<NavLink className='nav-btn' to='/checkout'>
 							<FaShoppingCart className='nav-icon' size={"1.4em"} />
-							<BubbleCounter />
 						</NavLink>
+						<BubbleCounter />
 						<button className='nav-btn' onClick={() => handleTheme()}>
 							{theme === false ? (
 								<FaSun className='nav-icon' size={"1.4em"} />
@@ -59,7 +60,7 @@ const Navbar = ({ theme, handleTheme, user }) => {
 								<FaMoon className='nav-icon' size={"1.4em"} />
 							)}
 						</button>
-						<button className='nav-btn link' onClick={handleLogout}>
+						<button className='nav-btn ' onClick={handleLogout}>
 							<FaSignOutAlt className='nav-icon' size={"1.4em"} />
 						</button>
 					</>

@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
-import { useNavigate } from "react-router-dom"
-import { validationError, registerUser } from "../features/authSlice"
+import { useNavigate, Link } from "react-router-dom"
+import { validationError, registerUser } from "../features/auth/authSlice"
 import "./styles/register.css"
 
 const RegisterPage = () => {
@@ -23,6 +23,13 @@ const RegisterPage = () => {
 	}
 	const onSubmit = (e) => {
 		e.preventDefault()
+		const isValid = email
+			.toLowerCase()
+			.match(
+				/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+			)
+
+		if (!isValid) return dispatch(validationError("Email isnt correct"))
 		if (password !== password1) {
 			return dispatch(validationError("Password do not match"))
 		}
@@ -36,7 +43,14 @@ const RegisterPage = () => {
 				<header className='register-header'>
 					<h3 className='register-title'>Register</h3>
 					Please, complete this form to register on our page
+					<p className='redirect'>
+					Do you already have an account? Go to
+					<Link to='/login' className='login-link'>
+					Login Page
+					</Link>
+				</p>
 				</header>
+
 				<form className='register-form' onSubmit={onSubmit}>
 					<input
 						type='text'
@@ -75,6 +89,7 @@ const RegisterPage = () => {
 						Submit!
 					</button>
 				</form>
+				
 			</section>
 		</div>
 	)

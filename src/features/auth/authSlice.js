@@ -1,12 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
 import authService from "./authService"
-import cartService from "./cartService"
+import cartService from "../cart/cartService"
 
 const apiUrl = import.meta.env.VITE_API_URL
-const userData = JSON.parse(localStorage.getItem("userData")) ?? null
+const user = JSON.parse(localStorage.getItem("userData"))
 
-const { user, jwt } = userData
 const initialState = {
 	isError: false,
 	isSuccess: false,
@@ -62,7 +61,7 @@ export const authSlice = createSlice({
 
 export const registerUser = (registerData) => async (dispatch) => {
 	try {
-		await authService.register(registerData)
+		const user = await authService.register(registerData)
 		dispatch(
 			loggedIn({
 				user,
@@ -90,7 +89,7 @@ export const loginUser = (loginData) => async (dispatch) => {
 		dispatch(rejected(message))
 	}
 }
-export const getOrders = () => async (dispatch) => {
+export const getOrders = (jwt) => async (dispatch) => {
 	try {
 		const { data } = await axios({
 			method: "get",
@@ -104,6 +103,7 @@ export const getOrders = () => async (dispatch) => {
 		console.error(error)
 	}
 }
-export const { logout, loggedIn, rejected, validationError } = authSlice.actions
+export const { logout, loggedIn, rejected, validationError, ordersReceived } =
+	authSlice.actions
 
 export default authSlice.reducer

@@ -32,9 +32,11 @@
   animation: moveInBottom 0.7s ease-out 0.5s ;
   animation-fill-mode: backwards;
 }
+
 @media (max-width:1100px) {
   .header{
     padding-top: 64px;
+    font-size: 24px;
   }
   .carousel{
     flex-direction: column ;

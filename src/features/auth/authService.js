@@ -15,19 +15,14 @@ const register = async (registerData) => {
 	if (response.data) {
 		localStorage.setItem("userData", JSON.stringify(response.data))
 	}
-	console.log(response.data)
 	return response.data
 }
 
 const login = async (loginData) => {
-	console.log(loginData)
 	const response = await axios({
 		method: "post",
 		url: `${apiUrl}/auth/local`,
-		headers: {
-			"Content-Type": "application/json",
-		},
-		body: {
+		data: {
 			identifier: loginData.email,
 			password: loginData.password,
 		},
@@ -35,7 +30,6 @@ const login = async (loginData) => {
 	if (response.data) {
 		localStorage.setItem("userData", JSON.stringify(response.data))
 	}
-	console.log(response.data)
 	return response.data
 }
 const authService = {
