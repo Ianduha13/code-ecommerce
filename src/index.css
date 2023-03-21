@@ -45,10 +45,28 @@ body {
 
 @layer components {
 	.layout-page {
-		@apply mb-3 flex min-h-fit w-4/5 max-w-5xl flex-grow flex-col items-center justify-center rounded-b-2xl bg-purple-600 p-6;
+		@apply mb-3 flex min-h-fit w-4/5 max-w-5xl flex-grow flex-col items-center rounded-b-2xl bg-purple-600 p-6;
 	}
 }
 .carousel {
 	animation: moveInBottom 0.7s ease-out 0.5s;
 	animation-fill-mode: backwards;
+}
+.products-container {
+	grid-template-columns: repeat(auto-fill, minmax(min(50%, 300px), 1fr));
+	margin-bottom: 24px;
+}
+.products-page {
+	animation: moveInBottom 0.5s ease-out 0.1s;
+	animation-fill-mode: backwards;
+}
+@keyframes moveInBottom {
+	0% {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0px);
+	}
 }

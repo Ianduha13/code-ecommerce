@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { loginUser } from "../features/auth/authSlice"
-import "./styles/login.css"
 
 const LoginPage = () => {
 	const dispatch = useDispatch()
@@ -10,6 +9,18 @@ const LoginPage = () => {
 		password: "",
 	})
 	const { email, password } = formData
+	const fields = [
+		{
+			type: "text",
+			name: "email",
+			placeholder: "Enter your email",
+		},
+		{
+			type: "password",
+			name: "password",
+			placeholder: "Enter your password",
+		},
+	]
 
 	const onChange = (e) => {
 		setFormData((prevState) => ({
@@ -32,25 +43,26 @@ const LoginPage = () => {
 
 	return (
 		<div className='layout-page'>
-			<section className='login-page'>
-				<h3 className='login-title'>Login</h3>
-				<p className='login-description'>Log in to complete your purchase!</p>
-				<form className='login-form' onSubmit={onSubmit}>
-					<input
-						type='text'
-						placeholder='Please put you e-mail here'
-						className='login-input'
-						name='email'
-						onChange={onChange}
-					/>
-					<input
-						type='password'
-						placeholder='Enter your password'
-						className='login-input'
-						name='password'
-						onChange={onChange}
-					/>
-					<button type='submit' className='submit-btn'>
+			<section className='mt-20 flex h-3/5 w-full flex-col items-center'>
+				<header className='pb-3 text-center text-xl'>
+					<h3 className='text-4xl font-bold'>Login</h3>
+					Log in to complete your purchase!
+				</header>
+				<form className='register-form' onSubmit={onSubmit}>
+					{fields.map((x) => (
+						<input
+							name={x.name}
+							placeholder={x.placeholder}
+							type={x.type}
+							onChange={onChange}
+							className='h-8 rounded-full bg-purple-900 pl-3'
+						/>
+					))}
+					<button
+						type='submit'
+						onSubmit={() => onSubmit(e)}
+						className='h-10 cursor-pointer rounded-full bg-orange-500 text-2xl font-bold'
+					>
 						Log in!
 					</button>
 				</form>

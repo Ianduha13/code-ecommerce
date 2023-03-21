@@ -7,7 +7,7 @@ const LandingPage = ({ products }) => {
 	const firstProducts = [products?.[0], products?.[1], products?.[2]]
 	usePageScroller()
 	return (
-		<div className='layout-page'>
+		<div className='layout-page justify-center'>
 			<section className='relative flex h-full w-full flex-col items-center'>
 				<header className='text-center text-3xl font-medium'>
 					Our most selled products:

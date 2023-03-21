@@ -1,4 +1,3 @@
-import "./styles/products.css"
 import { useState } from "react"
 import ProductCard from "../components/ProductCard"
 import usePageScroller from "../hooks/usePageScroller"
@@ -12,10 +11,10 @@ const ProductsPage = ({ products }) => {
 
 	usePageScroller()
 	return (
-		<section className='products-page'>
-			<header className='products-header'>All the products:</header>
+		<section className='products-page flex w-screen flex-grow flex-col items-center pt-20 text-center'>
+			<header className='text-2xl font-bold'>All the products:</header>
 			<FilterButtons setFilterId={setFilterId} />
-			<section className='products-container'>
+			<section className='products-container grid w-4/5 gap-4'>
 				{!categorieFiltered
 					? products.map((x) => <ProductCard product={x} key={x.id} />)
 					: categorieFiltered.products.map((x) => (

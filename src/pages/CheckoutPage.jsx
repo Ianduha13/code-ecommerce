@@ -19,10 +19,10 @@ const CheckoutPage = ({ user }) => {
 
 	if (!actualCart.length) {
 		return (
-			<div className='layout-page'>
+			<div className='layout-page justify-center'>
 				<header className='flex flex-col items-center gap-8'>
 					{submitedToEmail ? (
-						<h3 className='purchase-succed'>
+						<h3 className='text-2xl font-medium'>
 							Check your email ({submitedToEmail}) to complete your payment.
 						</h3>
 					) : (
@@ -40,7 +40,7 @@ const CheckoutPage = ({ user }) => {
 		)
 	}
 	return (
-		<div className='layout-page'>
+		<div className='layout-page justify-center'>
 			<div className='relative flex h-full w-4/5 flex-col pt-14'>
 				{actualCart.map((x) => (
 					<CheckoutCard product={x} key={x.id} />
@@ -55,7 +55,7 @@ const CheckoutPage = ({ user }) => {
 				</header>
 				<button
 					type='submit'
-					className='w-3/4 cursor-pointer rounded-xl bg-purple-500 py-3 text-center text-2xl font-bold'
+					className='w-3/4 cursor-pointer rounded-xl bg-orange-500 py-3 text-center text-2xl font-bold'
 				>
 					Send your order!
 				</button>

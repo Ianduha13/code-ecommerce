@@ -2,7 +2,6 @@ import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { useNavigate, Link } from "react-router-dom"
 import { validationError, registerUser } from "../features/auth/authSlice"
-import "./styles/register.css"
 
 const RegisterPage = () => {
 	const navigate = useNavigate()
@@ -14,7 +13,28 @@ const RegisterPage = () => {
 		password1: "",
 	})
 	const { name, email, password, password1 } = formData
-
+	const fields = [
+		{
+			type: "text",
+			name: "name",
+			placeholder: "Enter your name",
+		},
+		{
+			type: "text",
+			name: "email",
+			placeholder: "Your email example@gmail.com",
+		},
+		{
+			type: "password",
+			name: "password",
+			placeholder: "Enter your password",
+		},
+		{
+			type: "password",
+			name: "password1",
+			placeholder: "Repeat your password",
+		},
+	]
 	const onChange = (e) => {
 		setFormData((prevState) => ({
 			...prevState,
@@ -39,57 +59,35 @@ const RegisterPage = () => {
 
 	return (
 		<div className='layout-page'>
-			<section className='register-page'>
-				<header className='register-header'>
-					<h3 className='register-title'>Register</h3>
+			<section className='mt-20 flex h-3/5 w-full flex-col items-center'>
+				<header className='pb-3 text-center text-xl'>
+					<h3 className='text-4xl font-bold'>Register</h3>
 					Please, complete this form to register on our page
-					<p className='redirect'>
-					Do you already have an account? Go to
-					<Link to='/login' className='login-link'>
-					Login Page
-					</Link>
-				</p>
+					<p className='pt-1 text-xl'>
+						Do you already have an account?
+						<Link to='/login' className='text-xl text-orange-500'>
+							{` Go to Login Page`}
+						</Link>
+					</p>
 				</header>
-
 				<form className='register-form' onSubmit={onSubmit}>
-					<input
-						type='text'
-						name='name'
-						onChange={onChange}
-						placeholder='Enter your name'
-						className='register-input'
-					/>
-					<input
-						type='text'
-						placeholder='Your email example@gmail.com'
-						className='register-input'
-						name='email'
-						onChange={onChange}
-					/>
-					<input
-						type='password'
-						placeholder='Enter your password'
-						className='register-input'
-						name='password'
-						onChange={onChange}
-					/>
-
-					<input
-						type='password'
-						className='register-input'
-						placeholder='Please confirm your password'
-						name='password1'
-						onChange={onChange}
-					/>
+					{fields.map((x) => (
+						<input
+							name={x.name}
+							placeholder={x.placeholder}
+							type={x.type}
+							onChange={onChange}
+							className='h-8 rounded-full bg-purple-900 pl-3'
+						/>
+					))}
 					<button
 						type='submit'
 						onSubmit={() => onSubmit(e)}
-						className='submit-btn'
+						className='h-10 cursor-pointer rounded-full bg-orange-500 text-2xl font-bold'
 					>
 						Submit!
 					</button>
 				</form>
-				
 			</section>
 		</div>
 	)
