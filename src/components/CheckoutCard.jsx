@@ -1,4 +1,3 @@
-import "./styles/checkoutCard.css"
 import { useSelector, useDispatch } from "react-redux"
 import { addToCart, removeFromCart } from "../features/cart/cartSlice"
 import CounterButtons from "./CounterButtons"
@@ -16,29 +15,26 @@ const CheckoutCard = ({ product }) => {
 		dispatch(removeFromCart(product.id))
 	}
 	return (
-		<section className='checkout-card' key={product.id}>
-			<div className='col'>
+		<section
+			className='mt-2 flex items-center justify-between rounded-xl bg-purple-900 py-8 px-16 '
+			key={product.id}
+		>
+			<div className='flex w-fit items-center'>
 				<img
 					src={`${apiUrl}${product.image.formats.thumbnail.url}`}
 					alt={product.title}
-					className='checkout-img'
+					className='w-20 max-w-[80px] bg-cover'
 				/>
-				<h3 className='checkout-title'>{product.title}</h3>
+				<h3 className='pl-6 text-2xl font-bold'>{product.title}</h3>
 			</div>
-			<div className='col'>
-				<p className='checkout-price'>$ {product.price}</p>
-				{quantity === 0 ? (
-					<button className='checkout-card-btn' onClick={handleAddToCart}>
-						Add To Cart {quantity}
-					</button>
-				) : (
-					<CounterButtons
-						increment={handleAddToCart}
-						decrement={handleRemoveFromCart}
-						value={quantity}
-						emptyLabel='Add to Cart'
-					/>
-				)}
+			<div className='flex w-fit items-center'>
+				<p className='pr-6 text-2xl font-bold'>$ {product.price}</p>
+				<CounterButtons
+					increment={handleAddToCart}
+					decrement={handleRemoveFromCart}
+					value={quantity}
+					emptyLabel='Add to Cart'
+				/>
 			</div>
 		</section>
 	)

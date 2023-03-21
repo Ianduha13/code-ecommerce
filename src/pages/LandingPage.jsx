@@ -1,4 +1,3 @@
-import "./styles/landing.css"
 import { useNavigate } from "react-router-dom"
 import CarouselItem from "../components/CarouselItem"
 import usePageScroller from "../hooks/usePageScroller"
@@ -9,14 +8,19 @@ const LandingPage = ({ products }) => {
 	usePageScroller()
 	return (
 		<div className='layout-page'>
-			<section className='landing-page'>
-				<header className='header'>We have whatever you want</header>
-				<section className='carousel'>
+			<section className='relative flex h-full w-full flex-col items-center'>
+				<header className='text-center text-3xl font-medium'>
+					Our most selled products:
+				</header>
+				<section className='carousel flex h-1/2 items-center p-3'>
 					{firstProducts.map((x, idx) => (
 						<CarouselItem product={x} key={idx} />
 					))}
 				</section>
-				<button className='landing-btn' onClick={() => navigate("/products")}>
+				<button
+					className='h-10 w-full max-w-[400px] cursor-pointer rounded-full bg-orange-500 text-2xl font-semibold'
+					onClick={() => navigate("/products")}
+				>
 					See More...
 				</button>
 			</section>

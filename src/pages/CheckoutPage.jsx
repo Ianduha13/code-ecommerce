@@ -20,20 +20,18 @@ const CheckoutPage = ({ user }) => {
 	if (!actualCart.length) {
 		return (
 			<div className='layout-page'>
-				<header className='checkout-header'>
+				<header className='flex flex-col items-center gap-8'>
 					{submitedToEmail ? (
-						<div className='layout-page'>
-							<h3 className='purchase-succed'>
-								Check your email ({submitedToEmail}) to complete your payment.
-							</h3>
-						</div>
+						<h3 className='purchase-succed'>
+							Check your email ({submitedToEmail}) to complete your payment.
+						</h3>
 					) : (
-						<span className='header-empty'>
+						<span className='h-auto text-center text-2xl font-medium'>
 							You dont have any products in your cart yet!
 						</span>
 					)}
 					<Link to='/products'>
-						<button className='button-cart-empty'>
+						<button className='h-10 cursor-pointer rounded-full bg-orange-500 px-6 text-xl font-bold'>
 							Go Back to Products Page!
 						</button>
 					</Link>
@@ -43,16 +41,22 @@ const CheckoutPage = ({ user }) => {
 	}
 	return (
 		<div className='layout-page'>
-			<div className='checkout-products'>
+			<div className='relative flex h-full w-4/5 flex-col pt-14'>
 				{actualCart.map((x) => (
 					<CheckoutCard product={x} key={x.id} />
 				))}
 			</div>
-			<form className='checkout-total' onSubmit={handleSubmit}>
-				<header className='total-header'>
+			<form
+				className='mt-3 flex w-4/5 justify-center gap-4'
+				onSubmit={handleSubmit}
+			>
+				<header className='w-1/4 rounded-xl bg-white py-3 text-center text-2xl font-bold text-purple-500'>
 					Total: {Math.ceil(totalValue * 100) / 100}
 				</header>
-				<button type='submit' className='total-header button-header'>
+				<button
+					type='submit'
+					className='w-3/4 cursor-pointer rounded-xl bg-purple-500 py-3 text-center text-2xl font-bold'
+				>
 					Send your order!
 				</button>
 			</form>

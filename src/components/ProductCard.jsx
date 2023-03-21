@@ -1,25 +1,23 @@
-import "./styles/productCard.css"
 import CounterButtons from "./CounterButtons"
 import useProductCounter from "../hooks/useProductCounter"
-import { useNavigate } from "react-router-dom"
 
 const apiUrl = import.meta.env.VITE_API_URL
 
 const ProductCard = ({ product }) => {
-	const navigate = useNavigate()
-	const slug = product.slug
 	const { quantity, add, remove } = useProductCounter(product)
 	return (
-		<section className='product-card' key={product.id}>
+		<section
+			className='m-6 flex min-h-[400px] flex-col items-center justify-between rounded-2xl bg-purple-600 p-6 '
+			key={product.id}
+		>
 			<img
 				src={`${apiUrl}${product.image.url}`}
 				alt={product.title}
-				className='product-img'
-				// onClick={() => navigate(`/${slug}`)}
+				className='max-w-xs'
 			/>
-			<h3 className='product-title'>{product.title}</h3>
-			<p className='product-price'>$ {product.price}</p>
-			<section className='product-buttons'>
+			<h3 className='text-2xl font-bold'>{product.title}</h3>
+			<p className='text-xl font-bold'>$ {product.price}</p>
+			<section>
 				<CounterButtons
 					increment={add}
 					decrement={remove}

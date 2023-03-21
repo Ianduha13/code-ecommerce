@@ -8,7 +8,6 @@ import LandingPage from "./pages/LandingPage"
 import RegisterPage from "./pages/RegisterPage"
 import LoginPage from "./pages/LoginPage"
 import ProfilePage from "./pages/ProfilePage"
-import ProductPage from "./pages/ProductPage"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
 
@@ -17,7 +16,6 @@ const App = () => {
 	const { products } = useSelector((state) => state.products)
 	const { user } = useSelector((state) => state.auth)
 	const { cart } = useSelector((state) => state.cart)
-	const { productSlug } = useParams()
 	const [theme, setTheme] = useState(false)
 	const handleTheme = () => setTheme((x) => !x)
 	useEffect(() => {
@@ -35,10 +33,6 @@ const App = () => {
 				/>
 				<Routes>
 					<Route path='/' element={<LandingPage products={products} />} />
-					<Route
-						path='/:productSlug'
-						element={<ProductPage products={products} />}
-					/>
 					<Route
 						path='/products'
 						element={<ProductsPage products={products} user={user} />}

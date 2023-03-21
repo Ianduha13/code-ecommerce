@@ -12,6 +12,7 @@ const FilterButtons = ({ setFilterId }) => {
 			<div className='flex justify-between gap-4'>
 				{buttons.map((x) => (
 					<button
+						key={x.id}
 						className='cursor-pointer rounded-full bg-orange-500 py-2 px-3 text-xl focus:bg-slate-500 focus:opacity-80'
 						onClick={() => setFilterId(x.id)}
 					>
