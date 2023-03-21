@@ -10,6 +10,10 @@ const BubbleCounter = () => {
 			return n > 9 ? "9+" : n
 		}
 	}
-	return <span className='nav-basketCount'>{getNumber(value)}</span>
+	return (
+		<span className='absolute top-1 right-32 rounded-full bg-orange-500 py-1 px-2 text-center text-xs font-bold text-white'>
+			{getNumber(value)}
+		</span>
+	)
 }
 export default BubbleCounter

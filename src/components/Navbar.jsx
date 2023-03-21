@@ -1,4 +1,3 @@
-import "./styles/navbar.css"
 import { FaSignOutAlt, FaShoppingCart, FaMoon, FaSun } from "react-icons/fa"
 import { NavLink } from "react-router-dom"
 import { useDispatch } from "react-redux"
@@ -17,51 +16,74 @@ const Navbar = ({ theme, handleTheme, user }) => {
 	useEffect(() => {
 		setUserLog(user)
 	}, [user])
+
 	return (
-		<nav className='navbar-container'>
-			<section className='navbar-left'>
-				<NavLink className='link-title' to='/'>
-					Codealo E-commerce
-				</NavLink>
-			</section>
-			<section className='navbar-right'>
-				<NavLink className='nav-btn link' to='/products'>
+		<nav className='fixed z-10 flex h-14 w-screen items-center justify-between bg-purple-900 px-14'>
+			<NavLink className='cursor-pointer text-2xl font-bold text-white' to='/'>
+				Codealo E-commerce
+			</NavLink>
+			<section className='flex items-center'>
+				<NavLink
+					className='mr-2 flex cursor-pointer items-center justify-center rounded-md bg-transparent p-1 text-center text-xl font-medium hover:bg-slate-300 hover:bg-opacity-20'
+					to='/products'
+				>
 					Products
 				</NavLink>
 				{!userLog ? (
 					<>
-						<NavLink className='nav-btn link' to='/login'>
+						<NavLink
+							className='mr-2 flex cursor-pointer items-center justify-center rounded-md bg-transparent p-1 text-center text-xl font-medium hover:bg-slate-300 hover:bg-opacity-20'
+							to='/login'
+						>
 							Login
 						</NavLink>
-						<NavLink className='nav-btn link-highlight' to='/register'>
+						<NavLink
+							className='mr-2 flex cursor-pointer items-center justify-center rounded-md bg-orange-500 p-1 text-center text-xl font-medium hover:bg-orange-300 hover:bg-opacity-20'
+							to='/register'
+						>
 							Register
 						</NavLink>
-						<button className='nav-btn' onClick={() => handleTheme()}>
+						<button
+							className='mr-2 flex cursor-pointer items-center justify-center rounded-md bg-transparent p-1 text-center text-xl font-medium hover:bg-slate-300 hover:bg-opacity-20'
+							onClick={() => handleTheme()}
+						>
 							{theme === false ? (
-								<FaSun className='nav-icon' size={"1.4em"} />
+								<FaSun color='#fff' size={"1.4em"} />
 							) : (
-								<FaMoon className='nav-icon' size={"1.4em"} />
+								<FaMoon color='#000' size={"1.4em"} />
 							)}
 						</button>
 					</>
 				) : (
 					<>
-						<NavLink className='nav-btn link' to='/me'>
+						<NavLink
+							className='mr-2 flex cursor-pointer items-center justify-center rounded-md bg-transparent p-1 text-center text-xl font-medium hover:bg-slate-300 hover:bg-opacity-20'
+							to='/me'
+						>
 							Profile
 						</NavLink>
-						<NavLink className='nav-btn' to='/checkout'>
-							<FaShoppingCart className='nav-icon' size={"1.4em"} />
+						<NavLink
+							className='mr-2 flex cursor-pointer items-center justify-center rounded-md bg-transparent p-1 text-center text-xl font-medium hover:bg-slate-300 hover:bg-opacity-20'
+							to='/checkout'
+						>
+							<FaShoppingCart color='#fff' size={"1.4em"} />
 						</NavLink>
 						<BubbleCounter />
-						<button className='nav-btn' onClick={() => handleTheme()}>
+						<button
+							className='mr-2 flex cursor-pointer items-center justify-center rounded-md bg-transparent p-1 text-center text-xl font-medium hover:bg-slate-300 hover:bg-opacity-20'
+							onClick={() => handleTheme()}
+						>
 							{theme === false ? (
-								<FaSun className='nav-icon' size={"1.4em"} />
+								<FaSun color='#fff' size={"1.4em"} />
 							) : (
-								<FaMoon className='nav-icon' size={"1.4em"} />
+								<FaMoon color='#000' size={"1.4em"} />
 							)}
 						</button>
-						<button className='nav-btn ' onClick={handleLogout}>
-							<FaSignOutAlt className='nav-icon' size={"1.4em"} />
+						<button
+							className='mr-2 flex cursor-pointer items-center justify-center rounded-md bg-transparent p-1 text-center text-xl font-medium hover:bg-slate-300 hover:bg-opacity-20'
+							onClick={handleLogout}
+						>
+							<FaSignOutAlt color='#fff' size={"1.4em"} />
 						</button>
 					</>
 				)}
