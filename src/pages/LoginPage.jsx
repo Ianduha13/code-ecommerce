@@ -1,14 +1,13 @@
 import { useState } from "react"
-import { useDispatch } from "react-redux"
-import { loginUser } from "../features/auth/authSlice"
+import useForm from "../hooks/useForm"
 
 const LoginPage = () => {
-	const dispatch = useDispatch()
-	const [formData, setFormData] = useState({
-		email: "",
-		password: "",
+	const [formData, setFormData] = useState({})
+	const { handleChange, handleSubmit } = useForm({
+		formData,
+		setFormData,
+		form: "login",
 	})
-	const { email, password } = formData
 	const fields = [
 		{
 			type: "text",
@@ -21,26 +20,6 @@ const LoginPage = () => {
 			placeholder: "Enter your password",
 		},
 	]
-
-	const onChange = (e) => {
-		setFormData((prevState) => ({
-			...prevState,
-			[e.target.name]: e.target.value,
-		}))
-	}
-	const onSubmit = (e) => {
-		e.preventDefault()
-		const isValid = email
-			.toLowerCase()
-			.match(
-				/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-			)
-
-		if (!isValid) return
-		const userData = { email, password }
-		dispatch(loginUser(userData))
-	}
-
 	return (
 		<div className='layout-page'>
 			<section className='mt-20 flex h-3/5 w-full flex-col items-center'>
@@ -48,13 +27,17 @@ const LoginPage = () => {
 					<h3 className='text-4xl font-bold'>Login</h3>
 					Log in to complete your purchase!
 				</header>
-				<form className='register-form' onSubmit={onSubmit}>
-					{fields.map((x) => (
+				<form
+					className='flex w-full max-w-[480px] flex-col gap-4'
+					onSubmit={handleSubmit}
+				>
+					{fields.map((x, i) => (
 						<input
+							key={i}
 							name={x.name}
 							placeholder={x.placeholder}
 							type={x.type}
-							onChange={onChange}
+							onChange={handleChange(x.name)}
 							className='h-8 rounded-full bg-purple-900 pl-3'
 						/>
 					))}

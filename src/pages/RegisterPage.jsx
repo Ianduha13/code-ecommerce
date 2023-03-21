@@ -1,18 +1,14 @@
 import { useState } from "react"
-import { useDispatch } from "react-redux"
-import { useNavigate, Link } from "react-router-dom"
-import { validationError, registerUser } from "../features/auth/authSlice"
+import { Link } from "react-router-dom"
+import useForm from "../hooks/useForm"
 
 const RegisterPage = () => {
-	const navigate = useNavigate()
-	const dispatch = useDispatch()
-	const [formData, setFormData] = useState({
-		name: "",
-		email: "",
-		password: "",
-		password1: "",
+	const [formData, setFormData] = useState({})
+	const { handleChange, handleSubmit } = useForm({
+		formData,
+		setFormData,
+		form: "register",
 	})
-	const { name, email, password, password1 } = formData
 	const fields = [
 		{
 			type: "text",
@@ -35,28 +31,6 @@ const RegisterPage = () => {
 			placeholder: "Repeat your password",
 		},
 	]
-	const onChange = (e) => {
-		setFormData((prevState) => ({
-			...prevState,
-			[e.target.name]: e.target.value,
-		}))
-	}
-	const onSubmit = (e) => {
-		e.preventDefault()
-		const isValid = email
-			.toLowerCase()
-			.match(
-				/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-			)
-
-		if (!isValid) return dispatch(validationError("Email isnt correct"))
-		if (password !== password1) {
-			return dispatch(validationError("Password do not match"))
-		}
-		const userData = { name, email, password }
-		dispatch(registerUser(userData)).then(navigate("/"))
-	}
-
 	return (
 		<div className='layout-page'>
 			<section className='mt-20 flex h-3/5 w-full flex-col items-center'>
@@ -70,20 +44,24 @@ const RegisterPage = () => {
 						</Link>
 					</p>
 				</header>
-				<form className='register-form' onSubmit={onSubmit}>
-					{fields.map((x) => (
+				<form
+					className='flex w-full max-w-[480px] flex-col gap-2'
+					onSubmit={handleSubmit}
+				>
+					{fields.map((x, i) => (
 						<input
+							key={i}
 							name={x.name}
 							placeholder={x.placeholder}
 							type={x.type}
-							onChange={onChange}
+							onChange={handleChange(x.name)}
 							className='h-8 rounded-full bg-purple-900 pl-3'
 						/>
 					))}
 					<button
 						type='submit'
 						onSubmit={() => onSubmit(e)}
-						className='h-10 cursor-pointer rounded-full bg-orange-500 text-2xl font-bold'
+						className='mt-2 h-10 cursor-pointer rounded-full bg-orange-500 text-2xl font-bold'
 					>
 						Submit!
 					</button>

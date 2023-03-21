@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
-import { BrowserRouter, Routes, Route, useParams } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { SnackbarProvider } from "notistack"
 import { useDispatch, useSelector } from "react-redux"
 import { getProducts, getCategories } from "./features/productSlice"
 import ProductsPage from "./pages/ProductsPage"
@@ -17,11 +18,14 @@ const App = () => {
 	const { user } = useSelector((state) => state.auth)
 	const { cart } = useSelector((state) => state.cart)
 	const [theme, setTheme] = useState(false)
+
 	const handleTheme = () => setTheme((x) => !x)
+
 	useEffect(() => {
 		products !== null && dispatch(getProducts())
 		dispatch(getCategories())
 	}, [])
+
 	return (
 		<div className={`App ${theme ? "light" : "dark"}`}>
 			<BrowserRouter>
@@ -57,6 +61,12 @@ const App = () => {
 					/>
 				</Routes>
 				<Footer />
+				<SnackbarProvider
+					preventDuplicate
+					anchorOrigin={{ vertical: "top", horizontal: "right" }}
+					maxSnack={2}
+					autoHideDuration={2000}
+				/>
 			</BrowserRouter>
 		</div>
 	)
