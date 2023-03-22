@@ -4,7 +4,7 @@ import {
 	registerUser,
 	loginUser,
 } from "../features/auth/authSlice"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
 const useForm = ({ formData, setFormData, form }) => {
@@ -16,7 +16,7 @@ const useForm = ({ formData, setFormData, form }) => {
 			[name]: e.target.value,
 		}))
 	}
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault()
 
 		const { name, email, password, password1 } = formData
@@ -46,19 +46,21 @@ const useForm = ({ formData, setFormData, form }) => {
 				return
 			}
 			const userData = { name, email, password }
-			dispatch(registerUser(userData)).then(navigate("/"))
-			useAlert("Registered correctly", "success")
-			return
+			dispatch(registerUser(userData))
+			if (user !== null) {
+				useAlert("Registered correctly", "success")
+				navigate("/")
+				return
+			} else {
+				useAlert("Something went wrong, please try again", "error")
+			}
 		}
 		if (form === "login") {
 			const userData = { email, password }
-			try {
-				dispatch(loginUser(userData)).then(navigate("/"))
-				useAlert("Logged-in correctly", "success")
-				return
-			} catch (error) {
-				useAlert(`${error}`, "error")
-			}
+			dispatch(loginUser(userData))
+			navigate("/")
+			useAlert("Logged-in correctly", "success")
+			return
 		}
 	}
 	return { handleChange, handleSubmit }

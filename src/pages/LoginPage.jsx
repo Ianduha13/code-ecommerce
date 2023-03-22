@@ -43,7 +43,6 @@ const LoginPage = () => {
 					))}
 					<button
 						type='submit'
-						onSubmit={() => onSubmit(e)}
 						className='h-10 cursor-pointer rounded-full bg-orange-500 text-2xl font-bold'
 					>
 						Log in!

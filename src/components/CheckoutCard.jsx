@@ -1,6 +1,11 @@
 import { useSelector, useDispatch } from "react-redux"
-import { addToCart, removeFromCart } from "../features/cart/cartSlice"
+import {
+	addToCart,
+	quitFromCart,
+	removeFromCart,
+} from "../features/cart/cartSlice"
 import CounterButtons from "./CounterButtons"
+import { FaTimes } from "react-icons/fa"
 
 const apiUrl = import.meta.env.VITE_API_URL
 
@@ -14,9 +19,12 @@ const CheckoutCard = ({ product }) => {
 	const handleRemoveFromCart = () => {
 		dispatch(removeFromCart(product.id))
 	}
+	const handleQuitFromCart = () => {
+		dispatch(quitFromCart(product.id))
+	}
 	return (
 		<section
-			className='mt-2 flex items-center justify-between rounded-xl bg-purple-900 py-8 px-16 '
+			className='mt-2 flex items-center justify-between rounded-xl bg-purple-900 py-8 pl-16 pr-8 '
 			key={product.id}
 		>
 			<div className='flex w-fit items-center'>
@@ -35,6 +43,12 @@ const CheckoutCard = ({ product }) => {
 					value={quantity}
 					emptyLabel='Add to Cart'
 				/>
+				<button
+					className='ml-6 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-orange-500'
+					onClick={handleQuitFromCart}
+				>
+					<FaTimes />
+				</button>
 			</div>
 		</section>
 	)

@@ -13,6 +13,7 @@ const Navbar = ({ theme, handleTheme, user }) => {
 	const handleLogout = () => {
 		dispatch(logout())
 		dispatch(resetCart())
+		useAlert("Logged out correctly", "success")
 	}
 	useEffect(() => {
 		setUserLog(user)

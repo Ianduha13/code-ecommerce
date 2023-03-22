@@ -13,7 +13,7 @@ const ProductCard = ({ product }) => {
 			<img
 				src={`${apiUrl}${product.image.url}`}
 				alt={product.title}
-				className='max-w-xs'
+				className='max-h-xs'
 			/>
 			<h3 className='text-2xl font-bold'>{product.title}</h3>
 			<p className='text-xl font-bold'>$ {product.price}</p>

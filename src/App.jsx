@@ -27,7 +27,7 @@ const App = () => {
 	}, [])
 
 	return (
-		<div className={`App ${theme ? "light" : "dark"}`}>
+		<div className={`App ${theme ?? "dark"}`}>
 			<BrowserRouter>
 				<Navbar
 					products={cart}

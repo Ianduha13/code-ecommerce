@@ -35,8 +35,8 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	background-color: var(--secondary-color);
-	color: var(--primary-color);
+	background-color: #2d1d42;
+	color: #fff;
 	overflow-x: hidden;
 }
 .light .layout-page {

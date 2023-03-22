@@ -27,6 +27,7 @@ export const authSlice = createSlice({
 		loggedIn: (state, action) => {
 			const newState = {
 				...state,
+				isError: false,
 				isLoading: false,
 				isSuccess: true,
 				message: action.payload.message,

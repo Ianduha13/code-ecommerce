@@ -48,6 +48,16 @@ export const cartSlice = createSlice({
 			}
 			return { ...state, cart: newCart }
 		},
+		quitFromCart(state, action) {
+			const newCart = { ...state.cart }
+			const productId = action.payload
+			const existingProduct = newCart[productId]
+			newCart[productId] = {
+				...existingProduct,
+				quantity: newCart[productId].quantity - newCart[productId].quantity,
+			}
+			return { ...state, cart: newCart }
+		},
 		resetCart() {
 			return {
 				cart: {},
@@ -103,6 +113,7 @@ export const {
 	removeFromCart,
 	resetCart,
 	obtainCartId,
+	quitFromCart,
 } = cartSlice.actions
 
 export default cartSlice.reducer
