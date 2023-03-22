@@ -13,7 +13,7 @@ const ProductsPage = ({ products }) => {
 	return (
 		<section className='products-page flex w-screen flex-grow flex-col items-center pt-20 text-center'>
 			<header className='text-2xl font-bold'>All the products:</header>
-			<FilterButtons setFilterId={setFilterId} />
+			<FilterButtons setFilterId={setFilterId} filterId={filterId} />
 			<section className='products-container grid w-4/5 gap-4'>
 				{!categorieFiltered
 					? products.map((x) => <ProductCard product={x} key={x.id} />)

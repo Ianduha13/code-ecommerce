@@ -8,11 +8,11 @@ const LandingPage = ({ products }) => {
 	usePageScroller()
 	return (
 		<div className='layout-page justify-center'>
-			<section className='relative flex h-full w-full flex-col items-center'>
+			<section className='relative mt-20 flex h-full w-full flex-col items-center'>
 				<header className='text-center text-3xl font-medium'>
 					Our most selled products:
 				</header>
-				<section className='carousel flex h-1/2 items-center p-3'>
+				<section className='carousel flex h-1/2 w-full flex-col items-center justify-center p-3 lg:flex-row'>
 					{firstProducts.map((x, idx) => (
 						<CarouselItem product={x} key={idx} />
 					))}

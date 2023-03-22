@@ -11,7 +11,7 @@ const BubbleCounter = () => {
 		}
 	}
 	return (
-		<span className='absolute top-1 right-32 rounded-full bg-orange-500 py-1 px-2 text-center text-xs font-bold text-white'>
+		<span className='absolute top-1 right-3 rounded-full bg-orange-500 py-1 px-2 text-center text-xs font-bold text-white sm:right-12'>
 			{getNumber(value)}
 		</span>
 	)

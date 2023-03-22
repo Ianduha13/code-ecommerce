@@ -34,13 +34,13 @@ const RegisterPage = () => {
 	return (
 		<div className='layout-page'>
 			<section className='mt-20 flex h-3/5 w-full flex-col items-center'>
-				<header className='pb-3 text-center text-xl'>
-					<h3 className='text-4xl font-bold'>Register</h3>
+				<header className='pb-3 text-center md:text-xl'>
+					<h3 className='text-2xl font-bold md:text-4xl'>Register</h3>
 					Please, complete this form to register on our page
-					<p className='pt-1 text-xl'>
+					<p className='pt-1 md:text-xl'>
 						Do you already have an account?
-						<Link to='/login' className='text-xl text-orange-500'>
-							{` Go to Login Page`}
+						<Link to='/login' className=' text-orange-500 md:text-xl'>
+							{` Go to Login`}
 						</Link>
 					</p>
 				</header>

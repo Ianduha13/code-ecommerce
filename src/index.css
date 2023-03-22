@@ -47,13 +47,16 @@ body {
 	.layout-page {
 		@apply mb-3 flex min-h-fit w-4/5 max-w-5xl flex-grow flex-col items-center rounded-b-2xl bg-purple-600 p-6;
 	}
+	.nav-btn {
+		@apply mr-2 flex cursor-pointer items-center justify-center rounded-md bg-transparent p-1 text-center font-medium hover:bg-slate-300 hover:bg-opacity-20 sm:text-xl;
+	}
 }
 .carousel {
 	animation: moveInBottom 0.7s ease-out 0.5s;
 	animation-fill-mode: backwards;
 }
 .products-container {
-	grid-template-columns: repeat(auto-fill, minmax(min(50%, 300px), 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(min(50%, 360px), 1fr));
 	margin-bottom: 24px;
 }
 .products-page {

@@ -14,13 +14,13 @@ const CarouselItem = ({ product }) => {
 	}
 	return (
 		<section
-			className='m-6 flex h-72 w-full min-w-fit flex-col justify-between rounded-lg bg-purple-800 p-6 text-center'
+			className='m-6 flex w-full min-w-fit flex-col justify-between rounded-lg bg-purple-800 p-6 text-center sm:w-auto lg:h-72'
 			key={product.id}
 		>
 			<img
 				src={`${apiUrl}${product.image.url}`}
 				alt={product.title}
-				className='h-40 object-cover'
+				className='object-cover lg:h-40'
 			/>
 			<h3 className='text-xl font-medium'>{product.title}</h3>
 			<CounterButtons

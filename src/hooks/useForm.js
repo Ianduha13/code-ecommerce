@@ -52,9 +52,13 @@ const useForm = ({ formData, setFormData, form }) => {
 		}
 		if (form === "login") {
 			const userData = { email, password }
-			dispatch(loginUser(userData)).then(navigate("/"))
-			useAlert("Logged-in correctly", "success")
-			return
+			try {
+				dispatch(loginUser(userData)).then(navigate("/"))
+				useAlert("Logged-in correctly", "success")
+				return
+			} catch (error) {
+				useAlert(`${error}`, "error")
+			}
 		}
 	}
 	return { handleChange, handleSubmit }

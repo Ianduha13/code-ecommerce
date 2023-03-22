@@ -14,11 +14,11 @@ const Footer = () => {
 			</section>
 
 			<section className='flex items-center'>
-				<a target='__blank' href='https://github.com/Ianduha13'>
-					<FaGithub className='ml-2' size={"1.4em"} />
+				<a target='__blank' href='https://github.com/Ianduha13/code-ecommerce'>
+					<FaGithub className='ml-2' size={"1.2em"} />
 				</a>
 				<a target='__blank' href='https://www.linkedin.com/in/ian-duhamel/'>
-					<FaLinkedin className='ml-2' size={"1.4em"} />
+					<FaLinkedin className='ml-2' size={"1.2em"} />
 				</a>
 			</section>
 		</footer>
