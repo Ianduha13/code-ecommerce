@@ -1,10 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit"
 import cartService from "./cartService"
 
+const cart =
+	JSON.parse(localStorage.getItem("cart")) !== null
+		? JSON.parse(localStorage.getItem("cart"))
+		: {}
 export const cartSlice = createSlice({
 	name: "cart",
 	initialState: {
-		cart: {},
+		cart,
 		cartId: "",
 		loading: true,
 		message: "",

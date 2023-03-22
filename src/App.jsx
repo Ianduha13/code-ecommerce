@@ -20,7 +20,11 @@ const App = () => {
 	const [theme, setTheme] = useState(false)
 
 	const handleTheme = () => setTheme((x) => !x)
-
+	useEffect(() => {
+		cart !== null
+			? localStorage.setItem("cart", JSON.stringify(cart))
+			: localStorage.removeItem("cart")
+	}, [cart])
 	useEffect(() => {
 		products !== null && dispatch(getProducts())
 		dispatch(getCategories())

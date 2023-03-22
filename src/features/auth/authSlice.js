@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
 import authService from "./authService"
-import cartService from "../cart/cartService"
 
 const apiUrl = import.meta.env.VITE_API_URL
 const user = JSON.parse(localStorage.getItem("userData"))
