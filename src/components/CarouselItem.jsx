@@ -14,7 +14,7 @@ const CarouselItem = ({ product }) => {
 	}
 	return (
 		<section
-			className='m-6 flex w-full min-w-fit flex-col justify-between rounded-lg bg-purple-800 p-6 text-center sm:w-auto lg:h-72'
+			className='m-6 flex w-full min-w-fit flex-col items-center justify-between rounded-lg bg-purple-800 p-6 text-center sm:w-auto lg:h-72'
 			key={product.id}
 		>
 			<img

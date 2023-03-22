@@ -14,7 +14,7 @@ const CounterButtons = ({ value, decrement, increment, emptyLabel }) => {
 		)
 	return (
 		<section className='mt-2 h-10'>
-			<div className='flex h-8 w-40 items-center justify-between overflow-hidden'>
+			<div className='flex h-8 w-24 items-center justify-between overflow-hidden sm:w-40'>
 				<button
 					className='flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-orange-500'
 					onClick={decrement}

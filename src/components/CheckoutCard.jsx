@@ -24,19 +24,19 @@ const CheckoutCard = ({ product }) => {
 	}
 	return (
 		<section
-			className='mt-2 flex items-center justify-between rounded-xl bg-purple-900 py-8 pl-16 pr-8 '
+			className='mt-2 flex  justify-between rounded-xl bg-purple-900 px-2 py-2 lg:items-center lg:py-8 lg:px-8  '
 			key={product.id}
 		>
 			<div className='flex w-fit items-center'>
 				<img
 					src={`${apiUrl}${product.image.formats.thumbnail.url}`}
 					alt={product.title}
-					className='w-20 max-w-[80px] bg-cover'
+					className='w-10 max-w-[80px] bg-cover lg:w-20'
 				/>
-				<h3 className='pl-6 text-2xl font-bold'>{product.title}</h3>
+				<h3 className='text-2xl font-bold lg:pl-6'>{product.title}</h3>
 			</div>
-			<div className='flex w-fit items-center'>
-				<p className='pr-6 text-2xl font-bold'>$ {product.price}</p>
+			<div className='flex w-fit items-center gap-4'>
+				<p className='text-2xl font-bold lg:pr-2'>$ {product.price}</p>
 				<CounterButtons
 					increment={handleAddToCart}
 					decrement={handleRemoveFromCart}
@@ -44,7 +44,7 @@ const CheckoutCard = ({ product }) => {
 					emptyLabel='Add to Cart'
 				/>
 				<button
-					className='ml-6 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-orange-500'
+					className='flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-orange-500 lg:ml-2'
 					onClick={handleQuitFromCart}
 				>
 					<FaTimes />

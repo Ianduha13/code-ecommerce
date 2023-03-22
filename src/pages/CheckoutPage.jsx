@@ -40,14 +40,14 @@ const CheckoutPage = ({ user }) => {
 		)
 	}
 	return (
-		<div className='layout-page justify-center'>
-			<div className='relative flex h-full w-4/5 flex-col pt-14'>
+		<div className='layout-page w-screen justify-between md:w-4/5 md:justify-center'>
+			<div className='relative flex h-full w-full flex-col pt-14 md:w-4/5'>
 				{actualCart.map((x) => (
 					<CheckoutCard product={x} key={x.id} />
 				))}
 			</div>
 			<form
-				className='mt-3 flex w-4/5 justify-center gap-4'
+				className='mt-3 flex w-full justify-center gap-4 md:w-4/5'
 				onSubmit={handleSubmit}
 			>
 				<header className='w-1/4 rounded-xl bg-white py-3 text-center text-2xl font-bold text-purple-500'>
