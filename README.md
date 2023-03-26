@@ -10,11 +10,11 @@
   Navigate to the root directory of the project.
   Install the necessary dependencies by running the following command in your terminal:
   ```bash
-  npm install
+  yarn
 ```
 Once the dependencies have been installed, start the development server by running the following command:
 ```bash
-  npm install
+  yarn dev
 ```
 This will launch the application in your browser, where you can explore its features and functionality.
 
